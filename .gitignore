@@ -25,3 +25,5 @@ docker-data/
 .vscode/
 .idea/
 *.code-workspace
+
+icons
