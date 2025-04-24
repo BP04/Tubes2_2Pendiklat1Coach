@@ -8,6 +8,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
+
 	"github.com/PuerkitoBio/goquery"
 )
 
@@ -51,8 +53,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// ambil semua elemen dari tabel
 	var elements []Element
+	var wg sync.WaitGroup
+	var mu sync.Mutex
+	
+	inElements := make(map[string]bool)
+
+	// ambil semua elemen dari tabel
 	doc.Find("table.list-table tr").Each(func(i int, row *goquery.Selection) {
 		if i == 0 {
 			return
@@ -64,6 +71,15 @@ func main() {
 			return
 		}
 		
+		// cek apakah elemen sudah diproses
+		mu.Lock()
+		if inElements[element] {
+			mu.Unlock()
+			return
+		}
+		inElements[element] = true
+		mu.Unlock()
+
 		// ambil URL dari SVG di kolom pertama
 		svgURL := ""
 		imgTag := row.Find("td:nth-child(1) .icon-hover a").First()
@@ -81,44 +97,31 @@ func main() {
 			}
 		})
 
-		// cek apakah elemen udah ada (biar gak duplikat)
-		exists := false
-		for _, e := range elements {
-			if e.Name == element {
-				exists = true
-				break
-			}
-			for _, r := range e.Recipes {
-				for _, recipe := range recipes {
-					if (r[0] == recipe[0] && r[1] == recipe[1]) || (r[0] == recipe[1] && r[1] == recipe[0]) {
-						exists = true
-						break
-					}
-				}
-				if exists {
-					break
-				}
-			}
-			if exists {
-				break
-			}
-		}
-
-		// kalo belum ada, tambahin
-		if !exists && len(recipes) > 0 {
-			elements = append(elements, Element{
-				Name:    element,
-				Recipes: recipes,
-			})
+		if len(recipes) > 0 && svgURL != "" {
+			wg.Add(1)
 			
-			// donlot SVG
-			svgPath := filepath.Join("icons", element+".svg")
-			if err := donlotFile(svgURL, svgPath); err != nil {
-				log.Printf("Failed to download SVG for %s: %v", element, err)
-				return
-			}
+			go func (element, svgURL string, recipes [][]string) {
+				defer wg.Done()
+				// donlot SVG
+				svgPath := filepath.Join("icons", element+".svg")
+				if err := donlotFile(svgURL, svgPath); err != nil {
+					log.Printf("Failed to download SVG for %s: %v", element, err)
+					return
+				}
+
+				// tambahin elemen ke slice
+				mu.Lock()
+				elements = append(elements, Element{
+					Name:    element,
+					Recipes: recipes,
+				})
+				mu.Unlock()
+			}(element, svgURL, recipes)
 		}
 	})
+
+	// tunggu semua goroutine selesai
+	wg.Wait()
 
 	// simpen data ke file JSON
 	file, err := os.Create("elements.json")
