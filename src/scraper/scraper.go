@@ -97,27 +97,25 @@ func main() {
 			}
 		})
 
-		if len(recipes) > 0 && svgURL != "" {
-			wg.Add(1)
-			
-			go func (element, svgURL string, recipes [][]string) {
-				defer wg.Done()
-				// donlot SVG
-				svgPath := filepath.Join("icons", element+".svg")
-				if err := donlotFile(svgURL, svgPath); err != nil {
-					log.Printf("Failed to download SVG for %s: %v", element, err)
-					return
-				}
+		wg.Add(1)
 
-				// tambahin elemen ke slice
-				mu.Lock()
-				elements = append(elements, Element{
-					Name:    element,
-					Recipes: recipes,
-				})
-				mu.Unlock()
-			}(element, svgURL, recipes)
-		}
+		go func (element, svgURL string, recipes [][]string) {
+			defer wg.Done()
+			// donlot SVG
+			svgPath := filepath.Join("icons", element+".svg")
+			if err := donlotFile(svgURL, svgPath); err != nil {
+				log.Printf("Failed to download SVG for %s: %v", element, err)
+				return
+			}
+
+			// tambahin elemen ke slice
+			mu.Lock()
+			elements = append(elements, Element{
+				Name:    element,
+				Recipes: recipes,
+			})
+			mu.Unlock()
+		}(element, svgURL, recipes)
 	})
 
 	// tunggu semua goroutine selesai
