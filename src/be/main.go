@@ -2,14 +2,21 @@ package main
 
 import (
 	"fmt"
-	"net/http"
+	"time"
+
+	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/tools"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello from Go backend!")
-	})
+	tools.ParseJSON()
+	tools.BuildGraph()
 
-	fmt.Println("Server started on :8080")
-	http.ListenAndServe(":8080", nil)
+	for _, element := range tools.IDToName {
+		start := time.Now()
+
+		steps, _ := tools.RunDFS(element)
+
+		elapsed := time.Since(start)
+		fmt.Printf("element: %s | DFS - Steps: %d | Time: %v\n", element, steps, elapsed)
+	}
 }
