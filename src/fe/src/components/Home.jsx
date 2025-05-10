@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div className="home flex flex-col md:flex-row items-center justify-center min-h-[calc(100vh-80px)]">
-      <div className="home-content md:w-1/2 text-center md:text-left">
-        <h1 className="home-title text-5xl md:text-6xl font-bold text-dark-green uppercase leading-tight">
+      <div className="home-content md:w-6/7 text-center md:text-left">
+        <h1 className="home-title text-5xl md:text-6xl leading-[4rem] md:leading-[5rem] font-bold text-dark-green uppercase leading-tight">
           Little Alchemy Element Finder
         </h1>
         <p className="text-dark-green text-lg mt-2">
@@ -22,7 +22,7 @@ function Home() {
       <div className="home-image md:w-1/2 mt-8 md:mt-0 flex justify-center">
         
             <img
-            src="../assets/beaker.png"
+            src="src/assets/beaker.svg"
             alt="Beaker Illustration"
             className="w-64 h-64 md:w-80 md:h-80"
             />
