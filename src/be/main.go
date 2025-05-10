@@ -1,69 +1,42 @@
 package main
 
 import (
-	"encoding/json"
-	"github.com/gin-gonic/gin"
-	"io/ioutil"
-	"log"
-	"net/http"
-	"path/filepath"
-	"search"
+	"fmt"
+
+	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/tools"
 )
 
 func main() {
-	// Load elements.json
-	dataPath, err := filepath.Abs("data/elements.json")
-	if err != nil {
-		log.Fatal("Error finding elements.json:", err)
-	}
-	data, err := ioutil.ReadFile(dataPath)
-	if err != nil {
-		log.Fatal("Error reading elements.json:", err)
-	}
-	var elements []search.Element
-	if err := json.Unmarshal(data, &elements); err != nil {
-		log.Fatal("Error parsing elements.json:", err)
-	}
+	tools.ParseJSON()
+	tools.BuildGraph()
 
-	// Initialize Gin router
-	r := gin.Default()
+	// MaxStep := 0
+	// MaxStepElement := ""
+	// MaxTime := time.Duration(0)
+	// MaxTimeElement := ""
 
-	// API endpoint for search
-	r.POST("/api/search", func(c *gin.Context) {
-		var request struct {
-			Element    string `json:"element"`
-			Algorithm  string `json:"algorithm"`
-			Mode       string `json:"mode"`
-			MaxRecipes int    `json:"maxRecipes"`
-		}
-		if err := c.BindJSON(&request); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
-			return
-		}
+	// for _, element := range tools.IDToName {
+	// 	start := time.Now()
 
-		// Perform search
-		recipes, time, nodesVisited, err := search.FindRecipes(
-			elements,
-			request.Element,
-			request.Algorithm,
-			request.Mode,
-			request.MaxRecipes,
-		)
-		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-			return
-		}
+	// 	steps, _ := tools.RunBFS(element)
 
-		// Respond
-		c.JSON(http.StatusOK, gin.H{
-			"recipes":      recipes,
-			"time":         time,
-			"nodesVisited": nodesVisited,
-		})
-	})
+	// 	elapsed := time.Since(start)
+	// 	fmt.Printf("element: %s | BFS - Steps: %d | Time: %v\n", element, steps, elapsed)
 
-	// Start server
-	if err := r.Run(":8080"); err != nil {
-		log.Fatal("Error starting server:", err)
-	}
+	// 	if elapsed > MaxTime {
+	// 		MaxTime = elapsed
+	// 		MaxTimeElement = element
+	// 	}
+	// 	if steps > MaxStep {
+	// 		MaxStep = steps
+	// 		MaxStepElement = element
+	// 	}
+	// }
+
+	// fmt.Printf("element: %s | Time: %v\n", MaxTimeElement, MaxTime)
+	// fmt.Printf("element: %s | Steps: %d\n", MaxStepElement, MaxStep)
+
+	steps, path := tools.RunDFS("Ocean")
+	fmt.Printf("element: %s | Steps: %d\n", "Ocean", steps)
+	fmt.Printf("element: %s | Path: %v\n", "Ocean", path)
 }
