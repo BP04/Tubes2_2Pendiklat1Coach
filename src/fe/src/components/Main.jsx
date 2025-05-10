@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import SearchBar from './SearchBar';
 import AlgorithmSelector from './AlgorithmSelector';
 import RecipeTree from './RecipeTree';
@@ -34,21 +34,68 @@ function Main() {
     nodesVisited: 15
   };
 
+  useEffect(() => {
+    const socket = new WebSocket('ws://localhost:8080/ws');
+    
+    const handleMessage = (event) => {
+      const data = JSON.parse(event.data);
+      console.log(data);
+      setRecipes(data.recipes);
+      setSearchTime(data.time);
+      setNodesVisited(data.nodesVisited);
+    };
+
+    const handleOpen = () => {
+      console.log('yey sukses connect');
+      sendSearch(socket);
+    };
+
+    socket.addEventListener('message', handleMessage);
+    socket.addEventListener('open', handleOpen);
+
+    return () => {
+      socket.removeEventListener('message', handleMessage);
+      socket.removeEventListener('open', handleOpen);
+      socket.close();
+    };
+  }, []);
+
+  const sendSearch = (socket) => {
+    const payload = {
+      element,
+      algorithm,
+      mode,
+      maxRecipes: mode === 'multiple' ? maxRecipes : 1,
+    };
+    if (socket.readyState === WebSocket.OPEN) {
+      socket.send(JSON.stringify(payload));
+    }
+  };
+
   const handleSearch = async () => {
     try {
-      const payload = {
-        element,
-        algorithm,
-        mode,
-        maxRecipes: mode === 'multiple' ? maxRecipes : 1,
-      };
-      // TODO: ke api asli
-      // const response = await axios.post('http://localhost:8080/api/search', payload);
-      const response = { data: element.toLowerCase() === 'continent' ? dummyRespons : { recipes: [], time: 0, nodesVisited: 0 } };
+      const socket = new WebSocket('ws://localhost:8080/ws');
+      socket.addEventListener('open', () => {
+        const payload = {
+          element,
+          algorithm,
+          mode,
+          maxRecipes: mode === 'multiple' ? maxRecipes : 1,
+        };
+        socket.send(JSON.stringify(payload));
+      });
 
-      setRecipes(response.data.recipes);
-      setSearchTime(response.data.time);
-      setNodesVisited(response.data.nodesVisited);
+      socket.onopen = () => {
+        sendSearch(socket);
+      }
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        console.log(data);
+        setRecipes(data.recipes);
+        setSearchTime(data.time);
+        setNodesVisited(data.nodesVisited);
+      };
+
     } catch (error) {
       console.error('Error processing search:', error);
       try {
