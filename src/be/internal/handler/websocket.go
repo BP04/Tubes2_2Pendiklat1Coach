@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
+	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/tools"
 )
 
 type Node struct {
@@ -15,7 +16,7 @@ type Node struct {
 }
 
 type PathResult struct {
-	Recipes      []*Node `json:"recipes"`
+	Recipes      string  `json:"recipes"`
 	Time         float64 `json:"time"`
 	NodesVisited int     `json:"nodesVisited"`
 }
@@ -46,22 +47,34 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		log.Printf("Received message: %v\n", request)
-
+		log.Printf("Element: %s\n", request.Element)
+		log.Printf("Algorithm: %s\n", request.Algo)
+		log.Printf("Mode: %s\n", request.Mode)
+		log.Printf("Max Recipes: %d\n", request.MaxRecipes)
 		// harusnya di sini kita ngehandle request terus manggil fungsi yang sesuai (DFS/BFS)
-		// var response PathResult
-
-		// yg ini cuma contoh bang buat ngetes
-		response := PathResult{
-			Recipes:      []*Node{
-				{Name: "Land",
-					Children: []*Node{
-						{Name: "Earth"},
-						{Name: "Earth"},
-					},
-				},
-			},
-			Time:         0,
-			NodesVisited: 0,
+		var response PathResult
+		
+		switch request.Mode {
+		case "single":
+			if request.Algo == "BFS" {
+				steps, path := tools.RunBFS(request.Element)
+				response.Recipes = path
+				response.NodesVisited = steps
+			} else if request.Algo == "DFS" {
+				steps, path := tools.RunDFS(request.Element)
+				response.Recipes = path
+				response.NodesVisited = steps
+			}
+		case "multiple":
+			if request.Algo == "BFS" {
+				steps, path := tools.RunBFS(request.Element)
+				response.Recipes = path
+				response.NodesVisited = steps
+			} else if request.Algo == "DFS" {
+				steps, path := tools.RunDFS(request.Element)
+				response.Recipes = path
+				response.NodesVisited = steps
+			}
 		}
 
 		jsonResponse, err := json.Marshal(response)

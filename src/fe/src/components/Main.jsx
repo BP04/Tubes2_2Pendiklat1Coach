@@ -13,27 +13,6 @@ function Main() {
   const [searchTime, setSearchTime] = useState(0);
   const [nodesVisited, setNodesVisited] = useState(0);
 
-  const dummyRespons = {
-    recipes: [
-      {
-        id: 0,
-        name: "Continent",
-        children: [
-          {
-            name: "Land",
-            children: [
-              { name: "Earth" },
-              { name: "Earth" }
-            ]
-          },
-          { name: "Earth" }
-        ]
-      }
-    ],
-    time: 0.123,
-    nodesVisited: 15
-  };
-
   useEffect(() => {
     const socket = new WebSocket('ws://localhost:8080/ws');
     
@@ -67,7 +46,7 @@ function Main() {
       mode,
       maxRecipes: mode === 'multiple' ? maxRecipes : 1,
     };
-    if (socket.readyState === WebSocket.OPEN) {
+    if (socket.readyState === WebSocket.OPEN && element != "") {
       socket.send(JSON.stringify(payload));
     }
   };
@@ -82,7 +61,6 @@ function Main() {
           mode,
           maxRecipes: mode === 'multiple' ? maxRecipes : 1,
         };
-        socket.send(JSON.stringify(payload));
       });
 
       socket.onopen = () => {
