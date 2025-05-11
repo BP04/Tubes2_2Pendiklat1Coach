@@ -36,7 +36,7 @@ func main() {
 	// fmt.Printf("element: %s | Time: %v\n", MaxTimeElement, MaxTime)
 	// fmt.Printf("element: %s | Steps: %d\n", MaxStepElement, MaxStep)
 
-	steps, path := tools.RunDFS("Ocean")
-	fmt.Printf("element: %s | Steps: %d\n", "Ocean", steps)
-	fmt.Printf("element: %s | Path: %v\n", "Ocean", path)
+	steps, path := tools.RunBFS("Picnic")
+	fmt.Printf("Steps: %d\n", steps)
+	fmt.Printf("Path: %v\n", path)
 }
