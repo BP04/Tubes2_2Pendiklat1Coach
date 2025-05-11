@@ -2,6 +2,7 @@ package tools
 
 import (
 	"encoding/json"
+	"fmt"
 	"time"
 )
 
@@ -25,9 +26,10 @@ type Node struct {
 }
 
 type PathResult struct {
-	Recipes      []*Node `json:"recipes"`
-	Time         float64 `json:"time"`
-	NodesVisited int     `json:"nodesVisited"`
+	Recipes       []*Node `json:"recipes"`
+	Time          float64 `json:"time"`
+	TimeFormatted string  `json:"timeFormatted"`
+	NodesVisited  int     `json:"nodesVisited"`
 }
 
 type Queue struct {
@@ -402,12 +404,26 @@ func RunDFS(targetElem string) (int, string) {
 	targetID := NameToID[targetElem]
 	steps := DFS(0, targetID)
 
+	elapsedTime := time.Since(startTime)
+	elapsedNano := elapsedTime.Nanoseconds()
+
+	var timeFormatted string
+	switch {
+	case elapsedNano < 1000:
+		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
+	case elapsedNano < 1000000:
+		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
+	default:
+		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
+	}
+
 	recipes := BuildRecipeTree(0)
 
 	result := PathResult{
-		Recipes:      recipes,
-		Time:         time.Since(startTime).Seconds(),
-		NodesVisited: NodesVisited,
+		Recipes:       recipes,
+		Time:          elapsedTime.Seconds(),
+		TimeFormatted: timeFormatted,
+		NodesVisited:  NodesVisited,
 	}
 
 	jsonData, err := json.Marshal(result)
@@ -425,12 +441,26 @@ func RunBFS(targetElem string) (int, string) {
 
 	steps := BFS(targetElem)
 
+	elapsedTime := time.Since(startTime)
+	elapsedNano := elapsedTime.Nanoseconds()
+
+	var timeFormatted string
+	switch {
+	case elapsedNano < 1000:
+		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
+	case elapsedNano < 1000000:
+		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
+	default:
+		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
+	}
+
 	recipes := BuildRecipeTree(0)
 
 	result := PathResult{
-		Recipes:      recipes,
-		Time:         time.Since(startTime).Seconds(),
-		NodesVisited: NodesVisited,
+		Recipes:       recipes,
+		Time:          elapsedTime.Seconds(),
+		TimeFormatted: timeFormatted,
+		NodesVisited:  NodesVisited,
 	}
 
 	jsonData, err := json.Marshal(result)
