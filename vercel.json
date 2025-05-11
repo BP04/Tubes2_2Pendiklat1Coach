@@ -1,0 +1,40 @@
+{
+    "version": 2,
+    "projects": [
+      {
+        "name": "frontend",
+        "root": "src/fe",
+        "builds": [
+          {
+            "src": "src/fe/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+              "distDir": "build"
+            }
+          }
+        ],
+        "routes": [
+          {
+            "src": "/(.*)",
+            "dest": "index.html"
+          }
+        ]
+      },
+      {
+        "name": "backend",
+        "root": "src/be",
+        "builds": [
+          {
+            "src": "src/be/main.go",
+            "use": "@vercel/go"
+          }
+        ],
+        "routes": [
+          {
+            "src": "/api/(.*)",
+            "dest": "main.go"
+          }
+        ]
+      }
+    ]
+  }
