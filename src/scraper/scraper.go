@@ -179,16 +179,16 @@ func main() {
 	// tapi gaada di kolom elements dari laman ini https://little-alchemy.fandom.com/wiki/Elements_(Myths_and_Monsters)
 	
 	// maaf yh ini hardcode dikit soalnya gaada cara lain aowkaowkaokw
-	elements = deleteElmtByName(elements, "Time")
+	// elements = deleteElmtByName(elements, "Time")
 	elements = deleteElmtByName(elements, "Ruins")
 	elements = deleteElmtByName(elements, "Archeologist")
-	elements = deleteRecipeByName(elements, "Time")
+	// elements = deleteRecipeByName(elements, "Time")
 	elements = deleteRecipeByName(elements, "Ruins")
 	elements = deleteRecipeByName(elements, "Archeologist")
 	
 	// ngeparsing laman myths and monsters
 	hapusin := []string{
-		"Time",
+		// "Time",
 		"Ruins",
 		"Archeologist"}
 

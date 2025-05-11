@@ -16,7 +16,7 @@ type Node struct {
 }
 
 type PathResult struct {
-	Recipes      string  `json:"recipes"`
+	Recipes      []*Node `json:"recipes"`
 	Time         float64 `json:"time"`
 	NodesVisited int     `json:"nodesVisited"`
 }
@@ -46,42 +46,42 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 
-		log.Printf("Received message: %v\n", request)
-		log.Printf("Element: %s\n", request.Element)
-		log.Printf("Algorithm: %s\n", request.Algo)
-		log.Printf("Mode: %s\n", request.Mode)
-		log.Printf("Max Recipes: %d\n", request.MaxRecipes)
 		// harusnya di sini kita ngehandle request terus manggil fungsi yang sesuai (DFS/BFS)
 		var response PathResult
-		
+
+		var path string
 		switch request.Mode {
 		case "single":
 			if request.Algo == "BFS" {
-				steps, path := tools.RunBFS(request.Element)
-				response.Recipes = path
-				response.NodesVisited = steps
+				_, path = tools.RunBFS(request.Element)
 			} else if request.Algo == "DFS" {
-				steps, path := tools.RunDFS(request.Element)
-				response.Recipes = path
-				response.NodesVisited = steps
+				_, path = tools.RunDFS(request.Element)
 			}
+		// ni aku samain sm single dulu yah @ben
 		case "multiple":
 			if request.Algo == "BFS" {
-				steps, path := tools.RunBFS(request.Element)
-				response.Recipes = path
-				response.NodesVisited = steps
+				_, path = tools.RunBFS(request.Element)
 			} else if request.Algo == "DFS" {
-				steps, path := tools.RunDFS(request.Element)
-				response.Recipes = path
-				response.NodesVisited = steps
+				_, path = tools.RunDFS(request.Element)
 			}
 		}
+		
+		if err := json.Unmarshal([]byte(path), &response); err != nil {
+			log.Println("Error unmarshalling JSON:", err)
+			break
+		}
 
+		// buat debug doang
+		// prettyPath, err := json.MarshalIndent(response, "", "  ")
+		// log.Println("Pretty JSON:", string(prettyPath))
+		
 		jsonResponse, err := json.Marshal(response)
 		if err != nil {
 			log.Println("Error marshalling JSON:", err)
 			break
 		}
+
+		// log.Println("Response JSON:", string(jsonResponse)) // buat debug doang
 
 		if err := ws.WriteMessage(websocket.TextMessage, jsonResponse); err != nil {
 			log.Println("Error writing message:", err)
