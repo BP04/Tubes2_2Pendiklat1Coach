@@ -243,6 +243,7 @@ func BFS(targetElem string) int {
 	IDToNode[targetID] = 0
 
 	for !q.IsEmpty() {
+		NodesVisited++
 		pair := q.Dequeue()
 		current := pair[0]
 		adjIndex := pair[1]
