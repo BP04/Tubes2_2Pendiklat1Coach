@@ -77,7 +77,7 @@ function Main() {
     } catch (error) {
       console.error('Error processing search:', error);
       try {
-        const localDataModule = await import('../../../scraper/elements.json');
+        const localDataModule = await import('../../public/elements.json');
         const localData = localDataModule.default;
         const found = localData.find((e) => e.element.toLowerCase() === element.toLowerCase());
         if (found) {

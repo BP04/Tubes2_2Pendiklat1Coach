@@ -1,6 +1,6 @@
 import Tree from 'react-d3-tree';
 
-const imageModules = import.meta.glob('../../../scraper/icons/*.svg', { eager: true });
+const imageModules = import.meta.glob('../../public/icons/*.svg', { eager: true });
 
 console.log('imageModules:', Object.keys(imageModules));
 console.log(
