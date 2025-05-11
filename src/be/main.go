@@ -3,13 +3,24 @@ package main
 import (
 	"log"
 	"net/http"
-	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/tools"
+
 	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/handler"
+	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/scraper"
 )
 
 func main() {
-	tools.ParseJSON()
-	tools.BuildGraph()
+	// start := time.Now()
+
+	// scraper.Scrape()
+
+	// elapsed := time.Since(start)
+
+	// fmt.Printf("Scraping took %s\n", elapsed)
+
+	// tools.ParseJSON()
+	// tools.BuildGraph()
+
+	scraper.Scrape()
 
 	http.HandleFunc("/ws", handler.WebSocketHandler)
 
@@ -18,7 +29,6 @@ func main() {
 	if err != nil {
 		log.Fatal("Error starting server:", err)
 	}
-
 
 	// MaxStep := 0
 	// MaxStepElement := ""
