@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url('/fonts/plusjkt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "IBM Logo";
+  src: url('/fonts/ibm.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "PlusJakartaSans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #3D5327; 
+  min-height: 100vh;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  background: #F8C249;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  background: #E9E1B1;
+  color: #3D5327;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background: #d4c89e;
+  color: #3D5327;
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.home {
+  background: #F8C249;
+  padding: 6rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #3D5327;
+}
+
+.home-title {
+  font-family: "IBM Logo", monospace; 
+}
+
+.get-started {
+  background: #3D5327;
+  color: #E9E1B1;
+}
+
+.get-started:hover {
+  background: #2e3f1e;
+}
+
+.beaker-placeholder {
+  border: 2px solid #3D5327;
+}
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #E9E1B1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.search-bar select,
+.search-bar input {
+  background: #E9E1B1;
+  border: 1px solid #3D5327;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #3D5327;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar select:focus,
+.search-bar input:focus {
+  outline: none;
+  border-color: #F8C249;
+  box-shadow: 0 0 0 3px rgba(248, 194, 73, 0.2);
+}
+
+.search-bar button {
+  background: #F8C249;
+  color: #3D5327;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-bar button:hover {
+  background: #e0ad41;
+}
+
+.algorithm-selector {
+  background: #E9E1B1;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.algorithm-selector select,
+.algorithm-selector input {
+  background: #E9E1B1;
+  border: 1px solid #3D5327;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: #3D5327;
+}
+
+.algorithm-selector label {
+  color: #3D5327;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.stats {
+  background: #E9E1B1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.stats p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #3D5327;
+}
+
+.recipe-tree {
+  background: #E9E1B1;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.recipe-tree svg {
+  background: #E9E1B1;
+  border: 1px solid #3D5327;
+  border-radius: 0.375rem;
+}
+
+.tree-flip {
+  transform: scaleY(-1);
+}
+
+.tree-node-text {
+  transform: scaleY(-1);
+  fill: #3D5327;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar select,
+  .search-bar input {
+    width: 100%;
+  }
+
+  .algorithm-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home {
+    padding: 1.5rem;
+  }
+
+  .home-content {
+    margin-bottom: 2rem;
+  }
+
+  .home-image {
+    margin-top: 2rem;
+  }
+}
