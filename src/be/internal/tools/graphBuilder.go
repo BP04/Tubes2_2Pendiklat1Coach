@@ -22,7 +22,7 @@ var (
 )
 
 func ParseJSON() {
-	file, err := os.Open("../scraper/elements.json")
+	file, err := os.Open("data/elements.json")
 	if err != nil {
 		log.Fatalf("Failed to open elements.json: %v", err)
 	}

@@ -1,0 +1,14 @@
+FROM golang:1.23.3-alpine
+
+WORKDIR /app
+
+COPY src/be/go.mod src/be/go.sum ./
+RUN go mod download
+
+COPY src/be/ .
+
+RUN go build -o server .
+
+EXPOSE 8080
+
+CMD ["./server"]

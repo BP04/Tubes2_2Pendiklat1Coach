@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import elementsData from '../../../scraper/elements.json';
+import elementsData from '../../public/elements.json';
 
 function SearchBar({ element, setElement, onSearch }) {
   const [input, setInput] = useState(element);
