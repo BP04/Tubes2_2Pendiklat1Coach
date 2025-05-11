@@ -76,30 +76,6 @@ function Main() {
 
     } catch (error) {
       console.error('Error processing search:', error);
-      try {
-        const localDataModule = await import('../../public/elements.json');
-        const localData = localDataModule.default;
-        const found = localData.find((e) => e.element.toLowerCase() === element.toLowerCase());
-        if (found) {
-          const formattedRecipes = found.recipes.slice(0, mode === 'multiple' ? maxRecipes : 1).map((recipe, idx) => ({
-            id: idx,
-            name: found.element,
-            children: recipe.map((child) => ({ name: child })),
-          }));
-          setRecipes(formattedRecipes);
-          setSearchTime(0.1);
-          setNodesVisited(10);
-        } else {
-          setRecipes([]);
-          setSearchTime(0);
-          setNodesVisited(0);
-        }
-      } catch (localError) {
-        console.error('Error loading local data:', localError);
-        setRecipes([]);
-        setSearchTime(0);
-        setNodesVisited(0);
-      }
     }
   };
 

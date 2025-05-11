@@ -6,6 +6,7 @@ import (
 
 	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/handler"
 	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/scraper"
+	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/tools"
 )
 
 func main() {
@@ -17,12 +18,13 @@ func main() {
 
 	// fmt.Printf("Scraping took %s\n", elapsed)
 
-	// tools.ParseJSON()
-	// tools.BuildGraph()
-
+	
 	scraper.Scrape()
-
+	tools.ParseJSON()
+	tools.BuildGraph()
+	
 	http.HandleFunc("/ws", handler.WebSocketHandler)
+	http.HandleFunc("/elements", handler.GetElements)
 
 	log.Println("Server started on :8080")
 	err := http.ListenAndServe(":8080", nil)

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/websocket"
 	"github.com/BP04/Tubes2_2Pendiklat1Coach/internal/tools"
@@ -25,6 +26,28 @@ var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
 		return true
 	},
+}
+
+// fungsi untuk ngoper ./data/elements.json ke frontend,
+func GetElements(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*") 
+	w.Header().Set("Content-Type", "application/json")
+	file, err := os.Open("data/elements.json")
+	if err != nil {
+		http.Error(w, "Failed to open elements.json", http.StatusInternalServerError)
+		return
+	}
+	defer file.Close()
+
+	var elements []tools.Element
+	if err := json.NewDecoder(file).Decode(&elements); err != nil {
+		http.Error(w, "Failed to decode JSON", http.StatusInternalServerError)
+		return
+	}
+
+	if err := json.NewEncoder(w).Encode(elements); err != nil {
+		http.Error(w, "Failed to encode JSON", http.StatusInternalServerError)
+	}
 }
 
 func WebSocketHandler(w http.ResponseWriter, r *http.Request) {

@@ -1,15 +1,38 @@
-import { useState } from 'react';
-import elementsData from '../../public/elements.json';
+import { useState, useEffect } from 'react';
+// import elementsData from '../../public/elements.json';
+
+async function fetchElements() {
+  try {
+    const response = await fetch('http://localhost:8080/elements'); 
+    if (!response.ok) {
+      throw new Error('Failed to fetch elements');
+    }
+    const data = await response.json();
+    console.log('Fetched elements:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching elements:', error);
+    return [];
+  }
+}
 
 function SearchBar({ element, setElement, onSearch }) {
   const [input, setInput] = useState(element);
+  const [elementOptions, setElementOptions] = useState([]);
 
-  // Sort element names alphabetically
-  const elementOptions = elementsData
-    .map((item) => item.element)
-    .sort((a, b) => a.localeCompare(b));
+  useEffect(() => {
+    const loadElements = async () => {
+      const data = await fetchElements();
+      const sorted = data
+        .map((item) => item.element)
+        .sort((a, b) => a.localeCompare(b));
+      setElementOptions(sorted);
+    };
 
-  const handleSubmit = (e) => {
+    loadElements();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setElement(input);
     onSearch();
