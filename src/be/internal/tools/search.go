@@ -556,15 +556,7 @@ func RunDFS(targetElem string) (int, string) {
 	elapsedTime := time.Since(startTime)
 	elapsedNano := elapsedTime.Nanoseconds()
 
-	var timeFormatted string
-	switch {
-	case elapsedNano < 1000:
-		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
-	case elapsedNano < 1000000:
-		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
-	default:
-		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
-	}
+	timeFormatted := fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
 
 	recipe := BuildRecipeTree(0)
 	recipe[0] = SortTree(recipe[0])
@@ -608,15 +600,7 @@ func RunDFSMultiple(targetElem string, need int) string {
 	elapsedTime := time.Since(startTime)
 	elapsedNano := elapsedTime.Nanoseconds()
 
-	var timeFormatted string
-	switch {
-	case elapsedNano < 1000:
-		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
-	case elapsedNano < 1000000:
-		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
-	default:
-		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
-	}
+	timeFormatted := fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
 
 	result := PathResult{
 		Recipes:       recipes,
@@ -643,15 +627,7 @@ func RunBFS(targetElem string) (int, string) {
 	elapsedTime := time.Since(startTime)
 	elapsedNano := elapsedTime.Nanoseconds()
 
-	var timeFormatted string
-	switch {
-	case elapsedNano < 1000:
-		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
-	case elapsedNano < 1000000:
-		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
-	default:
-		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
-	}
+	timeFormatted := fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
 
 	recipe := BuildRecipeTree(0)
 	recipe[0] = SortTree(recipe[0])
@@ -695,15 +671,7 @@ func RunBFSMultiple(targetElem string, need int) string {
 	elapsedTime := time.Since(startTime)
 	elapsedNano := elapsedTime.Nanoseconds()
 
-	var timeFormatted string
-	switch {
-	case elapsedNano < 1000:
-		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
-	case elapsedNano < 1000000:
-		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
-	default:
-		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
-	}
+	timeFormatted := fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
 
 	result := PathResult{
 		Recipes:       recipes,
