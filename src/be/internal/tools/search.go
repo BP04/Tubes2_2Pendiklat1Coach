@@ -684,6 +684,7 @@ func RunBFSMultiple(targetElem string, need int) string {
 	var err error
 
 	for i, recipe := range recipeList {
+		fmt.Println(recipe)
 		recipes[i], err = ParseTree(recipe)
 		recipes[i] = SortTree(recipes[i])
 		if err != nil {

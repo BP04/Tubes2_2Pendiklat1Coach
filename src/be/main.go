@@ -61,6 +61,6 @@ func main() {
 	// fmt.Printf("Steps: %d\n", steps)
 	// fmt.Printf("Path: %v\n", path)
 
-	// answer := tools.RunBFSMultiple("Picnic", 100)
+	// answer := tools.RunBFSMultiple("Aurora", 2
 	// log.Printf("Answer: %v\n", answer)
 }
