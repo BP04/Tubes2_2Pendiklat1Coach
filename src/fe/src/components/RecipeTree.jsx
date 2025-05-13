@@ -51,7 +51,7 @@ function RecipeTree({ recipes }) {
       <g>
         <circle 
           r="32" 
-          fill="#f9fafb" /* Light gray background instead of white */
+          fill="#f9fafb"
           stroke="#2F855A" 
           strokeWidth="2"
           filter="drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1))"
@@ -87,9 +87,9 @@ function RecipeTree({ recipes }) {
             <h3 >{recipe.name}</h3>
             <div 
               ref={treeContainerRef}
-              className="w-full h-[1000px] overflow-hidden rounded-lg border border-green-200 bg-gray-50 tree-flip"
+              className="w-full h-[750px] overflow-hidden rounded-lg border border-green-200 bg-gray-50 tree-flip"
             >
-              {dimensions.width > 0 && (
+              {(
                 <Tree
                   data={recipe}
                   orientation="vertical"
