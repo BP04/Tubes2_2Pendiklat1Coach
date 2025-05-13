@@ -32,32 +32,15 @@ Pengguna memasukkan nama elemen yang dicari beserta algoritma pencarian yang dii
 ## Prerequisites
 
 ### Backend (Go)
-
-> Make sure you have Go installed. [Install Go](https://golang.org/doc/install)
+Make sure you have Go installed. [Install Go](https://golang.org/doc/install)
 
 ```bash
-# Create project directory
-mkdir backend && cd backend
-
-# Initialize a Go module
-go mod init your-module-name
-
-# Install Gorilla WebSocket
 go get github.com/gorilla/websocket
 ```
 
 ### Frontend (React.js)
 
-```bash
-# Create a new React app
-npx create-react-app frontend
-
-# Move into the project folder
-cd frontend
-
-# Install react-d3-tree
-npm install react-d3-tree
-```
+Install React.js
 
 ## How To Run
 
