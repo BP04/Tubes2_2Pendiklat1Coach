@@ -1,8 +1,10 @@
-# Tugas Besar 2 IF2211
+# Tugas Besar 2 IF2211 - Strategi Algoritma
 
 By: 2Pendiklat1Coach
 
-desc
+![image](https://github.com/user-attachments/assets/57a59147-c904-4441-8c5a-d7c1d4c15d8a)
+
+Ini adalah repositori yang dibuat untuk pemenuhan tugas besar IF2211 Strategi Algoritma. Tugas besar ini menuntut pembuatan website untuk melakukan visualisasi pohon pembangun elemen dalam permainan Little Alchemy 2.
 
 ## Built With
 
@@ -41,16 +43,9 @@ On ```src/be``` run
 ```
 go run main.go
 ```
-## Usage
-
-Contoh
 
 ## Contributors
 
 Faqih Muhammad Syuhada - [LinkedIn](https://www.linkedin.com/in/faqihmuhammadsyuhada/) - 13523057@std.stei.itb.ac.id
 Benedict Presley - [LinkedIn](https://www.linkedin.com/in/benedict-presley-b834ab29a/) - 13523067@std.stei.itb.ac.id
 Zulfaqqar Nayaka Athadiansyah - [LinkedIn](https://www.linkedin.com/in/nayaka-zna/) - 13523094@std.stei.itb.ac.id
-
-## License
-
-License
