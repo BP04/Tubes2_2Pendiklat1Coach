@@ -12458,8 +12458,6 @@
         ]
     },
     {
-<<<<<<< Updated upstream
-=======
         "element": "Polar bear",
         "tier": 10,
         "recipes": [
@@ -12474,7 +12472,6 @@
         ]
     },
     {
->>>>>>> Stashed changes
         "element": "Pipe",
         "tier": 10,
         "recipes": [
@@ -12515,23 +12512,6 @@
         ]
     },
     {
-<<<<<<< Updated upstream
-        "element": "Polar bear",
-        "tier": 10,
-        "recipes": [
-            [
-                "Animal",
-                "Ice"
-            ],
-            [
-                "Animal",
-                "Arctic"
-            ]
-        ]
-    },
-    {
-=======
->>>>>>> Stashed changes
         "element": "Potato",
         "tier": 10,
         "recipes": [
