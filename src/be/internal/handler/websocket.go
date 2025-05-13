@@ -80,12 +80,11 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 			} else if request.Algo == "DFS" {
 				_, path = tools.RunDFS(request.Element)
 			}
-		// ni aku samain sm single dulu yah @ben
 		case "multiple":
 			if request.Algo == "BFS" {
-				_, path = tools.RunBFS(request.Element)
+				path = tools.RunBFSMultiple(request.Element, request.MaxRecipes)
 			} else if request.Algo == "DFS" {
-				_, path = tools.RunDFS(request.Element)
+				path = tools.RunDFSMultiple(request.Element, request.MaxRecipes)
 			}
 		}
 		
