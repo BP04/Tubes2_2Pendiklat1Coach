@@ -36,8 +36,6 @@ function RecipeTree({ recipes }) {
   if (!recipes || recipes.length === 0) {
     return <p className="text-dark-green">No recipes found.</p>;
   }
-
-  // Custom node renderer with modern styling
   const renderCustomNode = (rd3tProps) => {
     const { nodeDatum } = rd3tProps;
     const imageUrl = getImageUrl(nodeDatum.name);
