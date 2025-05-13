@@ -858,6 +858,20 @@
         ]
     },
     {
+        "element": "Warmth",
+        "tier": 3,
+        "recipes": [
+            [
+                "Heat",
+                "Air"
+            ],
+            [
+                "Heat",
+                "Human"
+            ]
+        ]
+    },
+    {
         "element": "Wall",
         "tier": 3,
         "recipes": [
@@ -872,20 +886,6 @@
             [
                 "Stone",
                 "Stone"
-            ]
-        ]
-    },
-    {
-        "element": "Warmth",
-        "tier": 3,
-        "recipes": [
-            [
-                "Heat",
-                "Air"
-            ],
-            [
-                "Heat",
-                "Human"
             ]
         ]
     },
@@ -8504,6 +8504,40 @@
         ]
     },
     {
+        "element": "Graveyard",
+        "tier": 9,
+        "recipes": [
+            [
+                "Grave",
+                "Grave"
+            ],
+            [
+                "Grave",
+                "Field"
+            ],
+            [
+                "Grave",
+                "Land"
+            ],
+            [
+                "Gravestone",
+                "Gravestone"
+            ],
+            [
+                "Gravestone",
+                "Field"
+            ],
+            [
+                "Gravestone",
+                "Land"
+            ],
+            [
+                "Gravestone",
+                "Container"
+            ]
+        ]
+    },
+    {
         "element": "Grave",
         "tier": 9,
         "recipes": [
@@ -8541,40 +8575,6 @@
             ],
             [
                 "Coffin",
-                "Container"
-            ]
-        ]
-    },
-    {
-        "element": "Graveyard",
-        "tier": 9,
-        "recipes": [
-            [
-                "Grave",
-                "Grave"
-            ],
-            [
-                "Grave",
-                "Field"
-            ],
-            [
-                "Grave",
-                "Land"
-            ],
-            [
-                "Gravestone",
-                "Gravestone"
-            ],
-            [
-                "Gravestone",
-                "Field"
-            ],
-            [
-                "Gravestone",
-                "Land"
-            ],
-            [
-                "Gravestone",
                 "Container"
             ]
         ]
@@ -8758,6 +8758,28 @@
         ]
     },
     {
+        "element": "Ice",
+        "tier": 9,
+        "recipes": [
+            [
+                "Water",
+                "Cold"
+            ],
+            [
+                "Water",
+                "Solid"
+            ],
+            [
+                "Puddle",
+                "Cold"
+            ],
+            [
+                "Puddle",
+                "Solid"
+            ]
+        ]
+    },
+    {
         "element": "Hummingbird",
         "tier": 9,
         "recipes": [
@@ -8804,28 +8826,6 @@
             [
                 "Garden",
                 "Seagull"
-            ]
-        ]
-    },
-    {
-        "element": "Ice",
-        "tier": 9,
-        "recipes": [
-            [
-                "Water",
-                "Cold"
-            ],
-            [
-                "Water",
-                "Solid"
-            ],
-            [
-                "Puddle",
-                "Cold"
-            ],
-            [
-                "Puddle",
-                "Solid"
             ]
         ]
     },
@@ -12458,6 +12458,23 @@
         ]
     },
     {
+<<<<<<< Updated upstream
+=======
+        "element": "Polar bear",
+        "tier": 10,
+        "recipes": [
+            [
+                "Animal",
+                "Ice"
+            ],
+            [
+                "Animal",
+                "Arctic"
+            ]
+        ]
+    },
+    {
+>>>>>>> Stashed changes
         "element": "Pipe",
         "tier": 10,
         "recipes": [
@@ -12498,6 +12515,7 @@
         ]
     },
     {
+<<<<<<< Updated upstream
         "element": "Polar bear",
         "tier": 10,
         "recipes": [
@@ -12512,6 +12530,8 @@
         ]
     },
     {
+=======
+>>>>>>> Stashed changes
         "element": "Potato",
         "tier": 10,
         "recipes": [
