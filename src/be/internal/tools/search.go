@@ -348,6 +348,8 @@ func BFS(targetElem string) int {
 }
 
 func DFSBuildRecipes(current int, need int) []string {
+	NodesVisited++
+
 	name := Label[current]
 	result := make([]string, 0)
 
@@ -416,6 +418,8 @@ func BFSBuildRecipes(startNode int, need int) []string {
 	}
 
 	for !queue.IsEmpty() {
+		NodesVisited++
+
 		node := queue.Dequeue()
 		name := Label[node]
 
@@ -584,6 +588,7 @@ func RunDFSMultiple(targetElem string, need int) string {
 	targetID := NameToID[targetElem]
 	DFS(0, targetID)
 
+	NodesVisited = 0
 	recipeList := DFSBuildRecipes(0, need)
 
 	recipes := make([]*Node, len(recipeList))
@@ -654,6 +659,7 @@ func RunBFSMultiple(targetElem string, need int) string {
 
 	BFS(targetElem)
 
+	NodesVisited = 0
 	recipeList := BFSBuildRecipes(0, need)
 
 	recipes := make([]*Node, len(recipeList))
