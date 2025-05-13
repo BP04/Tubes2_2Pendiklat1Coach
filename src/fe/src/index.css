@@ -181,6 +181,8 @@ body {
   transform: scaleY(-1);
 }
 
+/* Unflip node contents */
+.tree-flip-node,
 .tree-node-text {
   transform: scaleY(-1);
   fill: #3D5327;
