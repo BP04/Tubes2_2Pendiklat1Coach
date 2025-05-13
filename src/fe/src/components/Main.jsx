@@ -19,7 +19,7 @@ function Main() {
     const handleMessage = (event) => {
       const data = JSON.parse(event.data);
       console.log(data);
-      setRecipes(data.recipes);
+      setRecipes(prev => [...prev, ...data.recipes]);
       setSearchTime(data.time);
       setNodesVisited(data.nodesVisited);
     };
@@ -96,7 +96,7 @@ function Main() {
         onSearch={handleSearch}
       />
       <div className="stats">
-        <p>Search Time: {searchTime.toFixed(3)} seconds</p>
+        <p>Search Time: {searchTime.toFixed(10)} microseconds</p>
         <p>Nodes Visited: {nodesVisited}</p>
       </div>
       <RecipeTree recipes={recipes} />
