@@ -19,7 +19,7 @@ function Main() {
     const handleMessage = (event) => {
       const data = JSON.parse(event.data);
       console.log(data);
-      setRecipes(prev => [...prev, ...data.recipes]);
+      setRecipes(data.recipes);
       setSearchTime(data.time);
       setNodesVisited(data.nodesVisited);
     };

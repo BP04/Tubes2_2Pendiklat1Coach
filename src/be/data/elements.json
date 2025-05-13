@@ -858,20 +858,6 @@
         ]
     },
     {
-        "element": "Warmth",
-        "tier": 3,
-        "recipes": [
-            [
-                "Heat",
-                "Air"
-            ],
-            [
-                "Heat",
-                "Human"
-            ]
-        ]
-    },
-    {
         "element": "Wall",
         "tier": 3,
         "recipes": [
@@ -886,6 +872,20 @@
             [
                 "Stone",
                 "Stone"
+            ]
+        ]
+    },
+    {
+        "element": "Warmth",
+        "tier": 3,
+        "recipes": [
+            [
+                "Heat",
+                "Air"
+            ],
+            [
+                "Heat",
+                "Human"
             ]
         ]
     },
@@ -4606,20 +4606,6 @@
         ]
     },
     {
-        "element": "Allergy",
-        "tier": 8,
-        "recipes": [
-            [
-                "Human",
-                "Dust"
-            ],
-            [
-                "Human",
-                "Pollen"
-            ]
-        ]
-    },
-    {
         "element": "Alarm clock",
         "tier": 8,
         "recipes": [
@@ -4660,6 +4646,20 @@
             [
                 "Gold",
                 "Philosophy"
+            ]
+        ]
+    },
+    {
+        "element": "Allergy",
+        "tier": 8,
+        "recipes": [
+            [
+                "Human",
+                "Dust"
+            ],
+            [
+                "Human",
+                "Pollen"
             ]
         ]
     },
@@ -8504,40 +8504,6 @@
         ]
     },
     {
-        "element": "Graveyard",
-        "tier": 9,
-        "recipes": [
-            [
-                "Grave",
-                "Grave"
-            ],
-            [
-                "Grave",
-                "Field"
-            ],
-            [
-                "Grave",
-                "Land"
-            ],
-            [
-                "Gravestone",
-                "Gravestone"
-            ],
-            [
-                "Gravestone",
-                "Field"
-            ],
-            [
-                "Gravestone",
-                "Land"
-            ],
-            [
-                "Gravestone",
-                "Container"
-            ]
-        ]
-    },
-    {
         "element": "Grave",
         "tier": 9,
         "recipes": [
@@ -8580,6 +8546,54 @@
         ]
     },
     {
+        "element": "Graveyard",
+        "tier": 9,
+        "recipes": [
+            [
+                "Grave",
+                "Grave"
+            ],
+            [
+                "Grave",
+                "Field"
+            ],
+            [
+                "Grave",
+                "Land"
+            ],
+            [
+                "Gravestone",
+                "Gravestone"
+            ],
+            [
+                "Gravestone",
+                "Field"
+            ],
+            [
+                "Gravestone",
+                "Land"
+            ],
+            [
+                "Gravestone",
+                "Container"
+            ]
+        ]
+    },
+    {
+        "element": "Ham",
+        "tier": 9,
+        "recipes": [
+            [
+                "Smoke",
+                "Meat"
+            ],
+            [
+                "Smoke",
+                "Pig"
+            ]
+        ]
+    },
+    {
         "element": "Greenhouse",
         "tier": 9,
         "recipes": [
@@ -8614,20 +8628,6 @@
             [
                 "Plant",
                 "Container"
-            ]
-        ]
-    },
-    {
-        "element": "Ham",
-        "tier": 9,
-        "recipes": [
-            [
-                "Smoke",
-                "Meat"
-            ],
-            [
-                "Smoke",
-                "Pig"
             ]
         ]
     },
@@ -8758,28 +8758,6 @@
         ]
     },
     {
-        "element": "Ice",
-        "tier": 9,
-        "recipes": [
-            [
-                "Water",
-                "Cold"
-            ],
-            [
-                "Water",
-                "Solid"
-            ],
-            [
-                "Puddle",
-                "Cold"
-            ],
-            [
-                "Puddle",
-                "Solid"
-            ]
-        ]
-    },
-    {
         "element": "Hummingbird",
         "tier": 9,
         "recipes": [
@@ -8826,6 +8804,28 @@
             [
                 "Garden",
                 "Seagull"
+            ]
+        ]
+    },
+    {
+        "element": "Ice",
+        "tier": 9,
+        "recipes": [
+            [
+                "Water",
+                "Cold"
+            ],
+            [
+                "Water",
+                "Solid"
+            ],
+            [
+                "Puddle",
+                "Cold"
+            ],
+            [
+                "Puddle",
+                "Solid"
             ]
         ]
     },
@@ -12458,20 +12458,6 @@
         ]
     },
     {
-        "element": "Polar bear",
-        "tier": 10,
-        "recipes": [
-            [
-                "Animal",
-                "Ice"
-            ],
-            [
-                "Animal",
-                "Arctic"
-            ]
-        ]
-    },
-    {
         "element": "Pipe",
         "tier": 10,
         "recipes": [
@@ -12508,6 +12494,20 @@
             [
                 "Pirate",
                 "House"
+            ]
+        ]
+    },
+    {
+        "element": "Polar bear",
+        "tier": 10,
+        "recipes": [
+            [
+                "Animal",
+                "Ice"
+            ],
+            [
+                "Animal",
+                "Arctic"
             ]
         ]
     },
@@ -14690,22 +14690,22 @@
         ]
     },
     {
-        "element": "Little alchemy (element)",
-        "tier": 11,
-        "recipes": [
-            [
-                "Small",
-                "Alchemist"
-            ]
-        ]
-    },
-    {
         "element": "Laptop",
         "tier": 11,
         "recipes": [
             [
                 "Computer",
                 "Small"
+            ]
+        ]
+    },
+    {
+        "element": "Little alchemy (element)",
+        "tier": 11,
+        "recipes": [
+            [
+                "Small",
+                "Alchemist"
             ]
         ]
     },

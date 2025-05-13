@@ -1,14 +1,9 @@
 import Tree from 'react-d3-tree';
-import plusIcon from '../assets/Plus.svg';
 import { useRef, useEffect, useState } from 'react';
 
 
-const pastimageModules = import.meta.glob('../../public/icons/*.svg', { eager: true });
+const imageModules = import.meta.glob('../../public/icons/*.svg', { eager: true });
 
-const imageModules = {
-  ...pastimageModules,
-  '../assets/Plus.svg': { default: plusIcon }
-};
 
 console.log('imageModules:', Object.keys(imageModules));
 console.log(
