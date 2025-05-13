@@ -347,6 +347,154 @@ func BFS(targetElem string) int {
 	return minimum[0]
 }
 
+func DFSBuildRecipes(current int, need int) []string {
+	name := Label[current]
+	result := make([]string, 0)
+
+	if name == "Fire" || name == "Water" || name == "Earth" || name == "Air" || name == "Time" {
+		result = append(result, "("+name+")")
+		return result
+	}
+
+	if name != "!" {
+		for _, candidate := range Aux[current] {
+			possible := DFSBuildRecipes(candidate, need)
+			for _, s := range possible {
+				result = append(result, "("+name+s+")")
+				need--
+				if need <= 0 {
+					break
+				}
+			}
+			if need <= 0 {
+				break
+			}
+		}
+		return result
+	}
+
+	leftRecipes := DFSBuildRecipes(Aux[current][0], need)
+	leftLen := len(leftRecipes)
+
+	rightNeeded := (need + leftLen - 1) / leftLen
+	if rightNeeded < 1 {
+		rightNeeded = 1
+	}
+	rightRecipes := DFSBuildRecipes(Aux[current][1], rightNeeded)
+
+	for _, s := range rightRecipes {
+		for _, t := range leftRecipes {
+			result = append(result, t+s)
+			need--
+			if need <= 0 {
+				break
+			}
+		}
+		if need <= 0 {
+			break
+		}
+	}
+
+	return result
+}
+
+func BFSBuildRecipes(startNode int, need int) []string {
+	memo := make([][]string, len(Aux))
+	for i := range memo {
+		memo[i] = make([]string, 0)
+	}
+
+	queue := NewIntQueue(100)
+	deg := make([]int, len(Aux))
+
+	for i := 0; i < len(Aux); i++ {
+		name := Label[i]
+		if name == "Fire" || name == "Water" || name == "Earth" || name == "Air" || name == "Time" {
+			queue.Enqueue(i)
+		}
+		deg[i] = len(Aux[i])
+	}
+
+	for !queue.IsEmpty() {
+		node := queue.Dequeue()
+		name := Label[node]
+
+		if name == "Fire" || name == "Water" || name == "Earth" || name == "Air" || name == "Time" {
+			memo[node] = append(memo[node], "("+name+")")
+			for _, nextNode := range RAux[node] {
+				deg[nextNode]--
+				if deg[nextNode] == 0 {
+					queue.Enqueue(nextNode)
+				}
+			}
+			continue
+		}
+
+		if name != "!" {
+			recipes := make([]string, 0)
+			for _, recipeNode := range Aux[node] {
+				if len(memo[recipeNode]) == 0 {
+					continue
+				}
+
+				remaining := need - len(recipes)
+				if remaining <= 0 {
+					break
+				}
+
+				copyCount := 0
+				if remaining < len(memo[recipeNode]) {
+					copyCount = remaining
+				} else {
+					copyCount = len(memo[recipeNode])
+				}
+				for i := 0; i < copyCount; i++ {
+					recipes = append(recipes, "("+name+memo[recipeNode][i]+")")
+				}
+			}
+			memo[node] = recipes
+
+			for _, nextNode := range RAux[node] {
+				deg[nextNode]--
+				if deg[nextNode] == 0 {
+					queue.Enqueue(nextNode)
+				}
+			}
+			continue
+		}
+
+		combined := make([]string, 0)
+		left := Aux[node][0]
+		right := Aux[node][1]
+
+		if len(memo[left]) > 0 && len(memo[right]) > 0 {
+			for _, l := range memo[left] {
+				if len(combined) >= need {
+					break
+				}
+
+				remaining := need - len(combined)
+				copyCount := min(remaining, len(memo[right]))
+
+				for i := 0; i < copyCount; i++ {
+					combined = append(combined, l+memo[right][i])
+				}
+			}
+		}
+
+		memo[node] = combined
+
+		for _, nextNode := range RAux[node] {
+			deg[nextNode]--
+			if deg[nextNode] == 0 {
+				queue.Enqueue(nextNode)
+			}
+		}
+	}
+
+	return memo[startNode]
+}
+
 func TracebackJSON(current int, recipeId int) *Node {
 	name := Label[current]
 
@@ -418,10 +566,11 @@ func RunDFS(targetElem string) (int, string) {
 		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
 	}
 
-	recipes := BuildRecipeTree(0)
+	recipe := BuildRecipeTree(0)
+	recipe[0] = SortTree(recipe[0])
 
 	result := PathResult{
-		Recipes:       recipes,
+		Recipes:       recipe,
 		Time:          elapsedTime.Seconds(),
 		TimeFormatted: timeFormatted,
 		NodesVisited:  NodesVisited,
@@ -433,6 +582,55 @@ func RunDFS(targetElem string) (int, string) {
 	}
 
 	return steps, string(jsonData)
+}
+
+func RunDFSMultiple(targetElem string, need int) string {
+	startTime := time.Now()
+
+	InitSearch(targetElem)
+
+	targetID := NameToID[targetElem]
+	DFS(0, targetID)
+
+	recipeList := DFSBuildRecipes(0, need)
+
+	recipes := make([]*Node, len(recipeList))
+	var err error
+
+	for i, recipe := range recipeList {
+		recipes[i], err = ParseTree(recipe)
+		recipes[i] = SortTree(recipes[i])
+		if err != nil {
+			return "{\"error\": \"Failed to parse recipe tree\"}"
+		}
+	}
+
+	elapsedTime := time.Since(startTime)
+	elapsedNano := elapsedTime.Nanoseconds()
+
+	var timeFormatted string
+	switch {
+	case elapsedNano < 1000:
+		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
+	case elapsedNano < 1000000:
+		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
+	default:
+		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
+	}
+
+	result := PathResult{
+		Recipes:       recipes,
+		Time:          elapsedTime.Seconds(),
+		TimeFormatted: timeFormatted,
+		NodesVisited:  NodesVisited,
+	}
+
+	jsonData, err := json.Marshal(result)
+	if err != nil {
+		return "{\"error\": \"Failed to generate JSON\"}"
+	}
+
+	return string(jsonData)
 }
 
 func RunBFS(targetElem string) (int, string) {
@@ -455,10 +653,11 @@ func RunBFS(targetElem string) (int, string) {
 		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
 	}
 
-	recipes := BuildRecipeTree(0)
+	recipe := BuildRecipeTree(0)
+	recipe[0] = SortTree(recipe[0])
 
 	result := PathResult{
-		Recipes:       recipes,
+		Recipes:       recipe,
 		Time:          elapsedTime.Seconds(),
 		TimeFormatted: timeFormatted,
 		NodesVisited:  NodesVisited,
@@ -470,4 +669,52 @@ func RunBFS(targetElem string) (int, string) {
 	}
 
 	return steps, string(jsonData)
+}
+
+func RunBFSMultiple(targetElem string, need int) string {
+	startTime := time.Now()
+
+	InitSearch(targetElem)
+
+	BFS(targetElem)
+
+	recipeList := BFSBuildRecipes(0, need)
+
+	recipes := make([]*Node, len(recipeList))
+	var err error
+
+	for i, recipe := range recipeList {
+		recipes[i], err = ParseTree(recipe)
+		recipes[i] = SortTree(recipes[i])
+		if err != nil {
+			return "{\"error\": \"Failed to parse recipe tree\"}"
+		}
+	}
+
+	elapsedTime := time.Since(startTime)
+	elapsedNano := elapsedTime.Nanoseconds()
+
+	var timeFormatted string
+	switch {
+	case elapsedNano < 1000:
+		timeFormatted = fmt.Sprintf("%d ns", elapsedNano)
+	case elapsedNano < 1000000:
+		timeFormatted = fmt.Sprintf("%.4f µs", float64(elapsedNano)/1000)
+	default:
+		timeFormatted = fmt.Sprintf("%.4f ms", float64(elapsedNano)/1000000)
+	}
+
+	result := PathResult{
+		Recipes:       recipes,
+		Time:          elapsedTime.Seconds(),
+		TimeFormatted: timeFormatted,
+		NodesVisited:  NodesVisited,
+	}
+
+	jsonData, err := json.Marshal(result)
+	if err != nil {
+		return "{\"error\": \"Failed to generate JSON\"}"
+	}
+
+	return string(jsonData)
 }
