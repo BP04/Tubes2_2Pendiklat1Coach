@@ -46,6 +46,6 @@ go run main.go
 
 ## Contributors
 
-Faqih Muhammad Syuhada - [LinkedIn](https://www.linkedin.com/in/faqihmuhammadsyuhada/) - 13523057@std.stei.itb.ac.id
-Benedict Presley - [LinkedIn](https://www.linkedin.com/in/benedict-presley-b834ab29a/) - 13523067@std.stei.itb.ac.id
-Zulfaqqar Nayaka Athadiansyah - [LinkedIn](https://www.linkedin.com/in/nayaka-zna/) - 13523094@std.stei.itb.ac.id
+- Faqih Muhammad Syuhada - [LinkedIn](https://www.linkedin.com/in/faqihmuhammadsyuhada/) - 13523057@std.stei.itb.ac.id
+- Benedict Presley - [LinkedIn](https://www.linkedin.com/in/benedict-presley-b834ab29a/) - 13523067@std.stei.itb.ac.id
+- Zulfaqqar Nayaka Athadiansyah - [LinkedIn](https://www.linkedin.com/in/nayaka-zna/) - 13523094@std.stei.itb.ac.id
