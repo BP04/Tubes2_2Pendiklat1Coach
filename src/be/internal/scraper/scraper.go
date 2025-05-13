@@ -69,7 +69,7 @@ func deleteRecipeByName(elmts []Element, name string) []Element {
 	}
 	return elmts
 }
-
+	
 func Scrape() {
 	os.Mkdir("data/icons", 0755)
 

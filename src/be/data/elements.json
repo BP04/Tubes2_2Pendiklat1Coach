@@ -1,19 +1,5 @@
 [
     {
-        "element": "Fire",
-        "tier": 0,
-        "recipes": [
-            [
-                "Fire",
-                "Alcohol"
-            ],
-            [
-                "Fire",
-                "Coal"
-            ]
-        ]
-    },
-    {
         "element": "Air",
         "tier": 0,
         "recipes": [
@@ -27,6 +13,20 @@
         "element": "Earth",
         "tier": 0,
         "recipes": null
+    },
+    {
+        "element": "Fire",
+        "tier": 0,
+        "recipes": [
+            [
+                "Fire",
+                "Alcohol"
+            ],
+            [
+                "Fire",
+                "Coal"
+            ]
+        ]
     },
     {
         "element": "Water",
@@ -4074,6 +4074,24 @@
         ]
     },
     {
+        "element": "Light bulb",
+        "tier": 7,
+        "recipes": [
+            [
+                "Glass",
+                "Electricity"
+            ],
+            [
+                "Glass",
+                "Light"
+            ],
+            [
+                "Light",
+                "Container"
+            ]
+        ]
+    },
+    {
         "element": "Bacteria",
         "tier": 7,
         "recipes": [
@@ -4244,20 +4262,32 @@
         ]
     },
     {
-        "element": "Light bulb",
+        "element": "Plankton",
         "tier": 7,
         "recipes": [
             [
-                "Glass",
-                "Electricity"
+                "Water",
+                "Life"
             ],
             [
-                "Glass",
-                "Light"
+                "Ocean",
+                "Life"
             ],
             [
-                "Light",
-                "Container"
+                "Sea",
+                "Life"
+            ],
+            [
+                "Bacteria",
+                "Water"
+            ],
+            [
+                "Bacteria",
+                "Ocean"
+            ],
+            [
+                "Bacteria",
+                "Sea"
             ]
         ]
     },
@@ -4328,32 +4358,28 @@
         ]
     },
     {
-        "element": "Plankton",
+        "element": "Smog",
         "tier": 7,
         "recipes": [
             [
-                "Water",
-                "Life"
+                "Smoke",
+                "Fog"
             ],
             [
-                "Ocean",
-                "Life"
+                "City",
+                "Smoke"
             ],
             [
-                "Sea",
-                "Life"
+                "City",
+                "Fog"
             ],
             [
-                "Bacteria",
-                "Water"
+                "City",
+                "Atmosphere"
             ],
             [
-                "Bacteria",
-                "Ocean"
-            ],
-            [
-                "Bacteria",
-                "Sea"
+                "City",
+                "Air"
             ]
         ]
     },
@@ -4384,32 +4410,6 @@
             [
                 "Golem",
                 "Steel"
-            ]
-        ]
-    },
-    {
-        "element": "Smog",
-        "tier": 7,
-        "recipes": [
-            [
-                "Smoke",
-                "Fog"
-            ],
-            [
-                "City",
-                "Smoke"
-            ],
-            [
-                "City",
-                "Fog"
-            ],
-            [
-                "City",
-                "Atmosphere"
-            ],
-            [
-                "City",
-                "Air"
             ]
         ]
     },
@@ -4496,6 +4496,20 @@
         ]
     },
     {
+        "element": "Twilight",
+        "tier": 7,
+        "recipes": [
+            [
+                "Day",
+                "Night"
+            ],
+            [
+                "Day",
+                "Time"
+            ]
+        ]
+    },
+    {
         "element": "Star",
         "tier": 7,
         "recipes": [
@@ -4522,20 +4536,6 @@
             [
                 "Sun",
                 "Space"
-            ]
-        ]
-    },
-    {
-        "element": "Twilight",
-        "tier": 7,
-        "recipes": [
-            [
-                "Day",
-                "Night"
-            ],
-            [
-                "Day",
-                "Time"
             ]
         ]
     },
@@ -4636,20 +4636,6 @@
         ]
     },
     {
-        "element": "Alchemist",
-        "tier": 8,
-        "recipes": [
-            [
-                "Human",
-                "Gold"
-            ],
-            [
-                "Gold",
-                "Philosophy"
-            ]
-        ]
-    },
-    {
         "element": "Allergy",
         "tier": 8,
         "recipes": [
@@ -4660,6 +4646,20 @@
             [
                 "Human",
                 "Pollen"
+            ]
+        ]
+    },
+    {
+        "element": "Alchemist",
+        "tier": 8,
+        "recipes": [
+            [
+                "Human",
+                "Gold"
+            ],
+            [
+                "Gold",
+                "Philosophy"
             ]
         ]
     },
@@ -4810,6 +4810,20 @@
         ]
     },
     {
+        "element": "Blood",
+        "tier": 8,
+        "recipes": [
+            [
+                "Human",
+                "Blade"
+            ],
+            [
+                "Warrior",
+                "Sword"
+            ]
+        ]
+    },
+    {
         "element": "Blizzard",
         "tier": 8,
         "recipes": [
@@ -4836,20 +4850,6 @@
             [
                 "Snow",
                 "Big"
-            ]
-        ]
-    },
-    {
-        "element": "Blood",
-        "tier": 8,
-        "recipes": [
-            [
-                "Human",
-                "Blade"
-            ],
-            [
-                "Warrior",
-                "Sword"
             ]
         ]
     },
@@ -5230,24 +5230,6 @@
         ]
     },
     {
-        "element": "Dynamite",
-        "tier": 8,
-        "recipes": [
-            [
-                "Gunpowder",
-                "Wire"
-            ],
-            [
-                "Gunpowder",
-                "Pipe"
-            ],
-            [
-                "Gunpowder",
-                "Container"
-            ]
-        ]
-    },
-    {
         "element": "Egg",
         "tier": 8,
         "recipes": [
@@ -5394,6 +5376,24 @@
         ]
     },
     {
+        "element": "Dynamite",
+        "tier": 8,
+        "recipes": [
+            [
+                "Gunpowder",
+                "Wire"
+            ],
+            [
+                "Gunpowder",
+                "Pipe"
+            ],
+            [
+                "Gunpowder",
+                "Container"
+            ]
+        ]
+    },
+    {
         "element": "Electrician",
         "tier": 8,
         "recipes": [
@@ -5460,6 +5460,24 @@
         ]
     },
     {
+        "element": "Force knight",
+        "tier": 8,
+        "recipes": [
+            [
+                "Human",
+                "Light sword"
+            ],
+            [
+                "Warrior",
+                "Light sword"
+            ],
+            [
+                "Knight",
+                "Light sword"
+            ]
+        ]
+    },
+    {
         "element": "Firefighter",
         "tier": 8,
         "recipes": [
@@ -5512,24 +5530,6 @@
             [
                 "Egg",
                 "Lake"
-            ]
-        ]
-    },
-    {
-        "element": "Force knight",
-        "tier": 8,
-        "recipes": [
-            [
-                "Human",
-                "Light sword"
-            ],
-            [
-                "Warrior",
-                "Light sword"
-            ],
-            [
-                "Knight",
-                "Light sword"
             ]
         ]
     },
@@ -5694,6 +5694,28 @@
         ]
     },
     {
+        "element": "Igloo",
+        "tier": 8,
+        "recipes": [
+            [
+                "House",
+                "Ice"
+            ],
+            [
+                "House",
+                "Cold"
+            ],
+            [
+                "House",
+                "Snow"
+            ],
+            [
+                "House",
+                "Snowman"
+            ]
+        ]
+    },
+    {
         "element": "Idea",
         "tier": 8,
         "recipes": [
@@ -5820,28 +5842,6 @@
             [
                 "Alchemist",
                 "Alchemist"
-            ]
-        ]
-    },
-    {
-        "element": "Igloo",
-        "tier": 8,
-        "recipes": [
-            [
-                "House",
-                "Ice"
-            ],
-            [
-                "House",
-                "Cold"
-            ],
-            [
-                "House",
-                "Snow"
-            ],
-            [
-                "House",
-                "Snowman"
             ]
         ]
     },
@@ -7270,6 +7270,20 @@
         ]
     },
     {
+        "element": "Butcher",
+        "tier": 9,
+        "recipes": [
+            [
+                "Human",
+                "Meat"
+            ],
+            [
+                "Human",
+                "Ham"
+            ]
+        ]
+    },
+    {
         "element": "Cactus",
         "tier": 9,
         "recipes": [
@@ -7288,20 +7302,6 @@
             [
                 "Desert",
                 "Tree"
-            ]
-        ]
-    },
-    {
-        "element": "Butcher",
-        "tier": 9,
-        "recipes": [
-            [
-                "Human",
-                "Meat"
-            ],
-            [
-                "Human",
-                "Ham"
             ]
         ]
     },
@@ -8936,6 +8936,24 @@
         ]
     },
     {
+        "element": "Liquid",
+        "tier": 9,
+        "recipes": [
+            [
+                "Water",
+                "Science"
+            ],
+            [
+                "Water",
+                "Idea"
+            ],
+            [
+                "Energy",
+                "Solid"
+            ]
+        ]
+    },
+    {
         "element": "Leather",
         "tier": 9,
         "recipes": [
@@ -9052,20 +9070,16 @@
         ]
     },
     {
-        "element": "Liquid",
+        "element": "Magma",
         "tier": 9,
         "recipes": [
             [
-                "Water",
+                "Lava",
                 "Science"
             ],
             [
-                "Water",
-                "Idea"
-            ],
-            [
-                "Energy",
-                "Solid"
+                "Volcano",
+                "Science"
             ]
         ]
     },
@@ -9100,20 +9114,6 @@
             [
                 "Boiler",
                 "Chain"
-            ]
-        ]
-    },
-    {
-        "element": "Magma",
-        "tier": 9,
-        "recipes": [
-            [
-                "Lava",
-                "Science"
-            ],
-            [
-                "Volcano",
-                "Science"
             ]
         ]
     },
@@ -9574,24 +9574,6 @@
         ]
     },
     {
-        "element": "Piggy bank",
-        "tier": 9,
-        "recipes": [
-            [
-                "Pig",
-                "Money"
-            ],
-            [
-                "Pig",
-                "Pottery"
-            ],
-            [
-                "Pig",
-                "Gold"
-            ]
-        ]
-    },
-    {
         "element": "Pigeon",
         "tier": 9,
         "recipes": [
@@ -9614,6 +9596,24 @@
             [
                 "Bird",
                 "Village"
+            ]
+        ]
+    },
+    {
+        "element": "Piggy bank",
+        "tier": 9,
+        "recipes": [
+            [
+                "Pig",
+                "Money"
+            ],
+            [
+                "Pig",
+                "Pottery"
+            ],
+            [
+                "Pig",
+                "Gold"
             ]
         ]
     },
@@ -10166,20 +10166,6 @@
         ]
     },
     {
-        "element": "Story",
-        "tier": 9,
-        "recipes": [
-            [
-                "Human",
-                "Campfire"
-            ],
-            [
-                "Human",
-                "Hero"
-            ]
-        ]
-    },
-    {
         "element": "Stethoscope",
         "tier": 9,
         "recipes": [
@@ -10202,6 +10188,20 @@
             [
                 "Tool",
                 "Hospital"
+            ]
+        ]
+    },
+    {
+        "element": "Story",
+        "tier": 9,
+        "recipes": [
+            [
+                "Human",
+                "Campfire"
+            ],
+            [
+                "Human",
+                "Hero"
             ]
         ]
     },
@@ -10740,6 +10740,28 @@
         ]
     },
     {
+        "element": "Bonsai tree",
+        "tier": 10,
+        "recipes": [
+            [
+                "Tree",
+                "Pottery"
+            ],
+            [
+                "Tree",
+                "Scissors"
+            ],
+            [
+                "Tree",
+                "Wire"
+            ],
+            [
+                "Tree",
+                "Small"
+            ]
+        ]
+    },
+    {
         "element": "Big",
         "tier": 10,
         "recipes": [
@@ -10766,28 +10788,6 @@
             [
                 "Planet",
                 "Philosophy"
-            ]
-        ]
-    },
-    {
-        "element": "Bonsai tree",
-        "tier": 10,
-        "recipes": [
-            [
-                "Tree",
-                "Pottery"
-            ],
-            [
-                "Tree",
-                "Scissors"
-            ],
-            [
-                "Tree",
-                "Wire"
-            ],
-            [
-                "Tree",
-                "Small"
             ]
         ]
     },
@@ -11014,6 +11014,28 @@
         ]
     },
     {
+        "element": "Cook",
+        "tier": 10,
+        "recipes": [
+            [
+                "Human",
+                "Fruit"
+            ],
+            [
+                "Human",
+                "Vegetable"
+            ],
+            [
+                "Human",
+                "Campfire"
+            ],
+            [
+                "Human",
+                "Nuts"
+            ]
+        ]
+    },
+    {
         "element": "Combustion engine",
         "tier": 10,
         "recipes": [
@@ -11084,38 +11106,12 @@
         ]
     },
     {
-        "element": "Cook",
+        "element": "Diamond",
         "tier": 10,
         "recipes": [
             [
-                "Human",
-                "Fruit"
-            ],
-            [
-                "Human",
-                "Vegetable"
-            ],
-            [
-                "Human",
-                "Campfire"
-            ],
-            [
-                "Human",
-                "Nuts"
-            ]
-        ]
-    },
-    {
-        "element": "Cyclist",
-        "tier": 10,
-        "recipes": [
-            [
-                "Human",
-                "Wheel"
-            ],
-            [
-                "Human",
-                "Bicycle"
+                "Coal",
+                "Pressure"
             ]
         ]
     },
@@ -11150,12 +11146,16 @@
         ]
     },
     {
-        "element": "Diamond",
+        "element": "Cyclist",
         "tier": 10,
         "recipes": [
             [
-                "Coal",
-                "Pressure"
+                "Human",
+                "Wheel"
+            ],
+            [
+                "Human",
+                "Bicycle"
             ]
         ]
     },
@@ -11218,6 +11218,16 @@
         ]
     },
     {
+        "element": "Duckling",
+        "tier": 10,
+        "recipes": [
+            [
+                "Egg",
+                "Duck"
+            ]
+        ]
+    },
+    {
         "element": "Drone",
         "tier": 10,
         "recipes": [
@@ -11250,16 +11260,6 @@
             [
                 "Carbon dioxide",
                 "Ice"
-            ]
-        ]
-    },
-    {
-        "element": "Duckling",
-        "tier": 10,
-        "recipes": [
-            [
-                "Egg",
-                "Duck"
             ]
         ]
     },
@@ -14338,6 +14338,36 @@
         ]
     },
     {
+        "element": "Grim reaper",
+        "tier": 11,
+        "recipes": [
+            [
+                "Human",
+                "Scythe"
+            ],
+            [
+                "Corpse",
+                "Scythe"
+            ],
+            [
+                "Zombie",
+                "Scythe"
+            ],
+            [
+                "Death",
+                "Scythe"
+            ],
+            [
+                "Boat",
+                "Scythe"
+            ],
+            [
+                "River",
+                "Scythe"
+            ]
+        ]
+    },
+    {
         "element": "Garage",
         "tier": 11,
         "recipes": [
@@ -14504,36 +14534,6 @@
         ]
     },
     {
-        "element": "Grim reaper",
-        "tier": 11,
-        "recipes": [
-            [
-                "Human",
-                "Scythe"
-            ],
-            [
-                "Corpse",
-                "Scythe"
-            ],
-            [
-                "Zombie",
-                "Scythe"
-            ],
-            [
-                "Death",
-                "Scythe"
-            ],
-            [
-                "Boat",
-                "Scythe"
-            ],
-            [
-                "River",
-                "Scythe"
-            ]
-        ]
-    },
-    {
         "element": "Gust",
         "tier": 11,
         "recipes": [
@@ -14690,22 +14690,22 @@
         ]
     },
     {
-        "element": "Laptop",
-        "tier": 11,
-        "recipes": [
-            [
-                "Computer",
-                "Small"
-            ]
-        ]
-    },
-    {
         "element": "Little alchemy (element)",
         "tier": 11,
         "recipes": [
             [
                 "Small",
                 "Alchemist"
+            ]
+        ]
+    },
+    {
+        "element": "Laptop",
+        "tier": 11,
+        "recipes": [
+            [
+                "Computer",
+                "Small"
             ]
         ]
     },
@@ -16634,12 +16634,32 @@
         ]
     },
     {
+        "element": "Pan flute",
+        "tier": 12,
+        "recipes": [
+            [
+                "Flute",
+                "Flute"
+            ]
+        ]
+    },
+    {
         "element": "Paper airplane",
         "tier": 12,
         "recipes": [
             [
                 "Airplane",
                 "Paper"
+            ]
+        ]
+    },
+    {
+        "element": "Pasta",
+        "tier": 12,
+        "recipes": [
+            [
+                "Flour",
+                "Egg"
             ]
         ]
     },
@@ -16658,26 +16678,6 @@
             [
                 "Pencil",
                 "Sword"
-            ]
-        ]
-    },
-    {
-        "element": "Pan flute",
-        "tier": 12,
-        "recipes": [
-            [
-                "Flute",
-                "Flute"
-            ]
-        ]
-    },
-    {
-        "element": "Pasta",
-        "tier": 12,
-        "recipes": [
-            [
-                "Flour",
-                "Egg"
             ]
         ]
     },
@@ -17324,34 +17324,6 @@
         ]
     },
     {
-        "element": "Chocolate milk",
-        "tier": 13,
-        "recipes": [
-            [
-                "Chocolate",
-                "Milk"
-            ],
-            [
-                "Chocolate",
-                "Coconut milk"
-            ]
-        ]
-    },
-    {
-        "element": "Cheeseburger",
-        "tier": 13,
-        "recipes": [
-            [
-                "Cheese",
-                "Hamburger"
-            ],
-            [
-                "Cheese",
-                "Sandwich"
-            ]
-        ]
-    },
-    {
         "element": "Candle",
         "tier": 13,
         "recipes": [
@@ -17374,6 +17346,34 @@
             [
                 "Wax",
                 "Lamp"
+            ]
+        ]
+    },
+    {
+        "element": "Cheeseburger",
+        "tier": 13,
+        "recipes": [
+            [
+                "Cheese",
+                "Hamburger"
+            ],
+            [
+                "Cheese",
+                "Sandwich"
+            ]
+        ]
+    },
+    {
+        "element": "Chocolate milk",
+        "tier": 13,
+        "recipes": [
+            [
+                "Chocolate",
+                "Milk"
+            ],
+            [
+                "Chocolate",
+                "Coconut milk"
             ]
         ]
     },
@@ -17498,20 +17498,6 @@
         ]
     },
     {
-        "element": "Hot chocolate",
-        "tier": 13,
-        "recipes": [
-            [
-                "Chocolate milk",
-                "Heat"
-            ],
-            [
-                "Chocolate",
-                "Heat"
-            ]
-        ]
-    },
-    {
         "element": "Gingerbread man",
         "tier": 13,
         "recipes": [
@@ -17554,6 +17540,20 @@
         ]
     },
     {
+        "element": "Hot chocolate",
+        "tier": 13,
+        "recipes": [
+            [
+                "Chocolate milk",
+                "Heat"
+            ],
+            [
+                "Chocolate",
+                "Heat"
+            ]
+        ]
+    },
+    {
         "element": "Librarian",
         "tier": 13,
         "recipes": [
@@ -17592,24 +17592,6 @@
         ]
     },
     {
-        "element": "Mailman",
-        "tier": 13,
-        "recipes": [
-            [
-                "Human",
-                "Letter"
-            ],
-            [
-                "Human",
-                "Newspaper"
-            ],
-            [
-                "Letter",
-                "Mailbox"
-            ]
-        ]
-    },
-    {
         "element": "Mailbox",
         "tier": 13,
         "recipes": [
@@ -17644,6 +17626,24 @@
             [
                 "Mailman",
                 "Wood"
+            ]
+        ]
+    },
+    {
+        "element": "Mailman",
+        "tier": 13,
+        "recipes": [
+            [
+                "Human",
+                "Letter"
+            ],
+            [
+                "Human",
+                "Newspaper"
+            ],
+            [
+                "Letter",
+                "Mailbox"
             ]
         ]
     },
@@ -17974,20 +17974,6 @@
         ]
     },
     {
-        "element": "Sheet music",
-        "tier": 14,
-        "recipes": [
-            [
-                "Music",
-                "Paper"
-            ],
-            [
-                "Music",
-                "Book"
-            ]
-        ]
-    },
-    {
         "element": "Sandwich",
         "tier": 14,
         "recipes": [
@@ -18010,6 +17996,20 @@
             [
                 "Bread",
                 "Vegetable"
+            ]
+        ]
+    },
+    {
+        "element": "Sheet music",
+        "tier": 14,
+        "recipes": [
+            [
+                "Music",
+                "Paper"
+            ],
+            [
+                "Music",
+                "Book"
             ]
         ]
     },
