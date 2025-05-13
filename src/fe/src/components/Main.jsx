@@ -96,7 +96,7 @@ function Main() {
         onSearch={handleSearch}
       />
       <div className="stats">
-        <p>Search Time: {searchTime.toFixed(10)} seconds</p>
+        <p>Search Time: {searchTime.toFixed(10)} micro seconds</p>
         <p>Nodes Visited: {nodesVisited}</p>
       </div>
       <RecipeTree recipes={recipes} />
