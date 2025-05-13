@@ -4606,6 +4606,20 @@
         ]
     },
     {
+        "element": "Allergy",
+        "tier": 8,
+        "recipes": [
+            [
+                "Human",
+                "Dust"
+            ],
+            [
+                "Human",
+                "Pollen"
+            ]
+        ]
+    },
+    {
         "element": "Alarm clock",
         "tier": 8,
         "recipes": [
@@ -4650,20 +4664,6 @@
         ]
     },
     {
-        "element": "Allergy",
-        "tier": 8,
-        "recipes": [
-            [
-                "Human",
-                "Dust"
-            ],
-            [
-                "Human",
-                "Pollen"
-            ]
-        ]
-    },
-    {
         "element": "Antarctica",
         "tier": 8,
         "recipes": [
@@ -4682,16 +4682,6 @@
             [
                 "Continent",
                 "Ice"
-            ]
-        ]
-    },
-    {
-        "element": "Astronomer",
-        "tier": 8,
-        "recipes": [
-            [
-                "Human",
-                "Telescope"
             ]
         ]
     },
@@ -4746,6 +4736,16 @@
             [
                 "Human",
                 "Moon rover"
+            ]
+        ]
+    },
+    {
+        "element": "Astronomer",
+        "tier": 8,
+        "recipes": [
+            [
+                "Human",
+                "Telescope"
             ]
         ]
     },
@@ -12380,20 +12380,6 @@
         ]
     },
     {
-        "element": "Pilot",
-        "tier": 10,
-        "recipes": [
-            [
-                "Human",
-                "Airplane"
-            ],
-            [
-                "Human",
-                "Seaplane"
-            ]
-        ]
-    },
-    {
         "element": "Perfume",
         "tier": 10,
         "recipes": [
@@ -12458,6 +12444,34 @@
         ]
     },
     {
+        "element": "Pilot",
+        "tier": 10,
+        "recipes": [
+            [
+                "Human",
+                "Airplane"
+            ],
+            [
+                "Human",
+                "Seaplane"
+            ]
+        ]
+    },
+    {
+        "element": "Pipe",
+        "tier": 10,
+        "recipes": [
+            [
+                "Tobacco",
+                "Wood"
+            ],
+            [
+                "Tobacco",
+                "Tool"
+            ]
+        ]
+    },
+    {
         "element": "Pirate ship",
         "tier": 10,
         "recipes": [
@@ -12480,20 +12494,6 @@
             [
                 "Pirate",
                 "House"
-            ]
-        ]
-    },
-    {
-        "element": "Pipe",
-        "tier": 10,
-        "recipes": [
-            [
-                "Tobacco",
-                "Wood"
-            ],
-            [
-                "Tobacco",
-                "Tool"
             ]
         ]
     },
@@ -12574,20 +12574,6 @@
         ]
     },
     {
-        "element": "Rivulet",
-        "tier": 10,
-        "recipes": [
-            [
-                "Stream",
-                "Small"
-            ],
-            [
-                "Puddle",
-                "Motion"
-            ]
-        ]
-    },
-    {
         "element": "Quicksilver",
         "tier": 10,
         "recipes": [
@@ -12612,12 +12598,16 @@
         ]
     },
     {
-        "element": "Sap",
+        "element": "Rivulet",
         "tier": 10,
         "recipes": [
             [
-                "Tree",
-                "Blade"
+                "Stream",
+                "Small"
+            ],
+            [
+                "Puddle",
+                "Motion"
             ]
         ]
     },
@@ -12640,6 +12630,16 @@
             [
                 "Castle",
                 "Dune"
+            ]
+        ]
+    },
+    {
+        "element": "Sap",
+        "tier": 10,
+        "recipes": [
+            [
+                "Tree",
+                "Blade"
             ]
         ]
     },
@@ -14504,20 +14504,6 @@
         ]
     },
     {
-        "element": "Gust",
-        "tier": 11,
-        "recipes": [
-            [
-                "Wind",
-                "Small"
-            ],
-            [
-                "Air",
-                "Small"
-            ]
-        ]
-    },
-    {
         "element": "Grim reaper",
         "tier": 11,
         "recipes": [
@@ -14544,6 +14530,20 @@
             [
                 "River",
                 "Scythe"
+            ]
+        ]
+    },
+    {
+        "element": "Gust",
+        "tier": 11,
+        "recipes": [
+            [
+                "Wind",
+                "Small"
+            ],
+            [
+                "Air",
+                "Small"
             ]
         ]
     },
@@ -14690,22 +14690,22 @@
         ]
     },
     {
-        "element": "Laptop",
-        "tier": 11,
-        "recipes": [
-            [
-                "Computer",
-                "Small"
-            ]
-        ]
-    },
-    {
         "element": "Little alchemy (element)",
         "tier": 11,
         "recipes": [
             [
                 "Small",
                 "Alchemist"
+            ]
+        ]
+    },
+    {
+        "element": "Laptop",
+        "tier": 11,
+        "recipes": [
+            [
+                "Computer",
+                "Small"
             ]
         ]
     },
@@ -16070,6 +16070,20 @@
         ]
     },
     {
+        "element": "Excavator",
+        "tier": 12,
+        "recipes": [
+            [
+                "Shovel",
+                "Big"
+            ],
+            [
+                "Shovel",
+                "Car"
+            ]
+        ]
+    },
+    {
         "element": "Flying squirrel",
         "tier": 12,
         "recipes": [
@@ -16114,20 +16128,6 @@
             [
                 "Pitchfork",
                 "Small"
-            ]
-        ]
-    },
-    {
-        "element": "Excavator",
-        "tier": 12,
-        "recipes": [
-            [
-                "Shovel",
-                "Big"
-            ],
-            [
-                "Shovel",
-                "Car"
             ]
         ]
     },
