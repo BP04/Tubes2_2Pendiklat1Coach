@@ -22,7 +22,7 @@ function Home() {
       <div className="home-image md:w-1/2 mt-8 md:mt-0 flex justify-center">
         
             <img
-            src="src/assets/beaker.svg"
+            src="/beaker.svg"
             alt="Beaker Illustration"
             className="w-64 h-64 md:w-80 md:h-80"
             />
